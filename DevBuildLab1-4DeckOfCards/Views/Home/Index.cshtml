@@ -1,0 +1,7 @@
+﻿@model CardDeck
+<h2>Here's a new deck of cards!</h2>
+<p>Deck ID: @Model.deck_id</p>
+<form asp-action="ShowCards" asp-route-deck_id="@Model.deck_id">
+    <input type="number" name="numToDraw" />
+    <input type="submit"/>
+</form>

@@ -1,0 +1,22 @@
+﻿@model CardDeck
+
+<h4>Cards Remaining: @Model.remaining</h4>
+<p>Deck @Model.deck_id</p>
+@foreach (Card c in Model.cards)
+{ 
+    <img src="@c.image"/>
+    <p>@c.value OF @c.suit</p>
+}
+@if (Model.remaining <= 0)
+{
+    <h5>No remaining cards!</h5>
+    <a asp-action="Index">Start over with a new deck</a>
+}
+else
+{
+<form asp-action="ShowCards" asp-route-deck_id="@Model.deck_id">
+    <h6>Draw again?</h6>
+    <input type="number" name="numToDraw" />
+    <input type="submit" />
+</form>
+}
